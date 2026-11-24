@@ -43,10 +43,10 @@ em.acc-d{font-style:italic;color:#7A5718}
 .mbtn:hover{color:#F4EFE6;border-color:#D0A044}
 .mbtn:focus-visible,.tab:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid #D0A044;outline-offset:3px}
 @supports (animation-timeline: view()){
-.mask{animation:mask linear both;animation-timeline:view();animation-range:entry 5% cover 30%}
-.grow{transform-origin:left;animation:line linear both;animation-timeline:view();animation-range:entry 10% cover 45%}
-.stag > *{animation:fadein linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
-.pub .row-rule{transform-origin:left;animation:line linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+.mask{animation:mask linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+.grow{transform-origin:left;animation:line linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+.stag > *{animation:fadein linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+.pub .row-rule{transform-origin:left;animation:line linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
 }
 @keyframes par{from{transform:translateY(-6%)}to{transform:translateY(6%)}}
 @supports (animation-timeline: view()){.par{animation:par linear both;animation-timeline:view();animation-range:cover 0% cover 100%}}

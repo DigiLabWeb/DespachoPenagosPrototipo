@@ -54,9 +54,15 @@ h1 em{font-weight:500;color:var(--gold)}
 .go{margin-top:auto;padding-top:12px;min-height:44px;font-weight:600;font-size:15px;color:var(--ink);display:inline-flex;gap:8px;align-items:center}
 .go span{transition:transform .3s}
 .opt:hover .go span{transform:translateX(5px)}
+.formcard{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;margin-top:18px;padding:22px 24px;border-radius:14px;border:1px solid var(--gold);background:linear-gradient(0deg,rgba(208,160,68,.08),rgba(208,160,68,.08)),var(--card);text-decoration:none;color:var(--ink);transition:transform .35s cubic-bezier(.2,.7,.2,1),background .35s;animation:rise .9s .4s cubic-bezier(.2,.7,.2,1) both}
+.formcard:hover{transform:translateY(-3px)}
+.formcard:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.formcard h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:26px;line-height:1.1;margin:0;color:var(--gold)}
+.formcard p{margin:6px 0 0;color:var(--soft);font-size:15px;max-width:46ch}
+.formcard .go{margin:0;padding:0;min-height:44px}
 .foot{margin:28px 0 0;font-size:13px;color:#8C877F}
 @media(max-width:640px){.opts{grid-template-columns:minmax(0,1fr)}.seal{opacity:.3}}
-@media(prefers-reduced-motion:reduce){.seal svg,.menu,.opt{animation:none}.opt,.go span{transition:none}}
+@media(prefers-reduced-motion:reduce){.seal svg,.menu,.opt,.formcard{animation:none}.opt,.go span{transition:none}}
 </style>
 </head>
 <body>
@@ -75,7 +81,7 @@ h1 em{font-weight:500;color:var(--gold)}
 </div>
 
 <h1 id="t">Bienvenidos.</h1>
-<p class="lead">Preparamos dos versiones para el nuevo sitio de la firma. Ambas comparten el mismo contenido y la misma estructura; cambia la manera de presentarse. Elija una para recorrerla. Desde cualquier página puede volver aquí.</p>
+<p class="lead">Preparamos dos versiones para el nuevo sitio de la firma. Ambas comparten el mismo contenido y la misma estructura; cambia la manera de presentarse. Elija una para recorrerla; desde cualquier página puede volver aquí. Abajo encontrará el formulario para completar los datos del sitio.</p>
 
 <nav class="opts" aria-label="Versiones">
 <a class="opt" href="v3/">
@@ -102,6 +108,14 @@ h1 em{font-weight:500;color:var(--gold)}
 </div>
 </a>
 </nav>
+
+<a class="formcard" href="formulario/">
+<div>
+<h2>Formulario de datos</h2>
+<p>Ayúdenos a completar la información del sitio: datos de la firma, de los socios y de sus áreas de práctica. Toma unos 20 minutos y puede dejarse a medias.</p>
+</div>
+<span class="go">Llenar formulario <span aria-hidden="true">→</span></span>
+</a>
 
 <p class="foot">Vista previa preparada por digiLab · Los datos entre corchetes se completarán con la información de la firma.</p>
 </main>
