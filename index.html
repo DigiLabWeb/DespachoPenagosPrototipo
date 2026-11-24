@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Penagos &amp; Aké · Versiones</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Versiones de diseño para el sitio web de Penagos & Aké, Firma Legal.">
+<meta name="theme-color" content="#0F1113">
+<link rel="icon" type="image/png" href="assets/emblema.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: formal y cálido, una bienvenida breve antes de recorrer las propuestas.
+   IDEA: la carátula de un expediente con dos folios para elegir.
+   PICTURE: dos portadas en miniatura, una con el emblema y otra con la plumilla.
+   COLOUR and TYPE: negro #0F1113, hueso #F4EFE6, oro del logo #D0A044; Cormorant + Inter, Cinzel solo en el nombre.
+   LAYOUT: tarjeta central de hasta 920px, dos opciones lado a lado que se apilan en celular. */
+:root{color-scheme:dark;--bg:#0F1113;--ink:#F4EFE6;--soft:#B9B3A8;--gold:#D0A044;--line:rgba(208,160,68,.28);--card:#16191C}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;display:grid;place-items:center;overflow-x:clip;padding:clamp(20px,5vw,56px) 16px}
+.seal{position:fixed;width:min(1100px,150vw);aspect-ratio:1;left:50%;top:50%;translate:-50% -50%;pointer-events:none;opacity:.5}
+.seal svg{width:100%;height:100%;animation:spin 140s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+.menu{position:relative;width:100%;max-width:920px;background:rgba(22,25,28,.92);border:1px solid var(--line);border-radius:18px;padding:clamp(26px,5vw,52px);backdrop-filter:blur(6px);animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.head{display:flex;align-items:center;gap:14px}
+.head img{height:44px;width:auto}
+.name{font-family:Cinzel,Georgia,serif;font-weight:600;letter-spacing:.05em;color:var(--gold);font-size:17px;line-height:1.2}
+.name small{display:block;font-family:Inter,sans-serif;font-weight:500;letter-spacing:.32em;font-size:12px;color:var(--soft);margin-top:4px}
+h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(38px,6vw,56px);line-height:1.05;margin:30px 0 0;color:var(--gold)}
+h1 em{font-weight:500;color:var(--gold)}
+.lead{color:#DAD5CC;max-width:60ch;margin:14px 0 0;font-size:17px}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:34px}
+.opt{display:flex;flex-direction:column;background:var(--card);border:1px solid rgba(244,239,230,.12);border-radius:14px;overflow:hidden;text-decoration:none;color:var(--ink);transition:border-color .35s,transform .35s cubic-bezier(.2,.7,.2,1);animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.opt:nth-child(1){animation-delay:.15s}.opt:nth-child(2){animation-delay:.28s}
+.opt:hover{border-color:var(--gold);transform:translateY(-4px)}
+.opt:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.thumb{position:relative;aspect-ratio:16/10;background:#0F1113;overflow:hidden;border-bottom:1px solid rgba(244,239,230,.1)}
+.thumb .t{position:absolute;left:8%;bottom:12%;font-family:'Cormorant Garamond',Georgia,serif;color:var(--ink);line-height:.98}
+.thumb .t em{color:var(--gold);font-weight:500}
+.a .t{font-size:clamp(20px,2.8vw,28px);font-weight:500}
+.a .ring{position:absolute;right:7%;top:50%;translate:0 -50%;width:44%;aspect-ratio:1;border:1px solid rgba(208,160,68,.45);border-radius:50%;display:grid;place-items:center}
+.a .ring::before{content:"";position:absolute;inset:12%;border:1px solid rgba(208,160,68,.2);border-radius:50%}
+.a .ring img{width:38%;height:auto}
+.b img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% 50%}
+.b::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,17,19,.92),rgba(15,17,19,.25))}
+.b .t{z-index:1;font-size:clamp(18px,2.6vw,26px);font-weight:600;text-transform:uppercase}
+.b .t em{text-transform:none}
+.body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.lab{font-size:13px;color:var(--gold);font-weight:600}
+.opt h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:26px;line-height:1.1;margin:0;color:var(--gold)}
+.opt p{margin:0;color:var(--soft);font-size:15px}
+.go{margin-top:auto;padding-top:12px;min-height:44px;font-weight:600;font-size:15px;color:var(--ink);display:inline-flex;gap:8px;align-items:center}
+.go span{transition:transform .3s}
+.opt:hover .go span{transform:translateX(5px)}
+.foot{margin:28px 0 0;font-size:13px;color:#8C877F}
+@media(max-width:640px){.opts{grid-template-columns:minmax(0,1fr)}.seal{opacity:.3}}
+@media(prefers-reduced-motion:reduce){.seal svg,.menu,.opt{animation:none}.opt,.go span{transition:none}}
+</style>
+</head>
+<body>
+<div class="seal" aria-hidden="true">
+<svg viewBox="0 0 500 500"><defs><path id="c" d="M250,250 m-205,0 a205,205 0 1,1 410,0 a205,205 0 1,1 -410,0"/></defs>
+<circle cx="250" cy="250" r="235" fill="none" stroke="#D0A044" stroke-opacity=".22"/>
+<circle cx="250" cy="250" r="178" fill="none" stroke="#D0A044" stroke-opacity=".12"/>
+<text font-family="Inter, sans-serif" font-size="12" letter-spacing="7" fill="#D0A044" fill-opacity=".4"><textPath href="#c">PENAGOS &amp; AKÉ · FIRMA LEGAL · PLAYA DEL CARMEN · QUINTANA ROO · </textPath></text>
+</svg>
+</div>
+
+<main class="menu" aria-labelledby="t">
+<div class="head">
+<img src="assets/emblema.png" alt="">
+<div class="name">PENAGOS &amp; AKÉ<small>FIRMA LEGAL</small></div>
+</div>
+
+<h1 id="t">Bienvenidos.</h1>
+<p class="lead">Preparamos dos versiones para el nuevo sitio de la firma. Ambas comparten el mismo contenido y la misma estructura; cambia la manera de presentarse. Elija una para recorrerla. Desde cualquier página puede volver aquí.</p>
+
+<nav class="opts" aria-label="Versiones">
+<a class="opt" href="v3/">
+<div class="thumb a" aria-hidden="true">
+<div class="t">El derecho,<br>por <em>escrito</em>.</div>
+<div class="ring"><img src="assets/emblema.png" alt=""></div>
+</div>
+<div class="body">
+<h2>Versión A</h2>
+<p>La portada presenta el emblema de la firma, que se dibuja en tinta dorada. Clásica, serena y centrada en la identidad.</p>
+<span class="go">Ver versión A <span aria-hidden="true">→</span></span>
+</div>
+</a>
+
+<a class="opt" href="v4/">
+<div class="thumb b" aria-hidden="true">
+<img class="bg" src="assets/poster-video.jpg" alt="">
+<div class="t">El derecho,<br>por <em>escrito</em>.</div>
+</div>
+<div class="body">
+<h2>Versión B</h2>
+<p>La portada abre con un video de una plumilla escribiendo y titulares de gran formato. Editorial y contemporánea.</p>
+<span class="go">Ver versión B <span aria-hidden="true">→</span></span>
+</div>
+</a>
+</nav>
+
+<p class="foot">Vista previa preparada por digiLab · Los datos entre corchetes se completarán con la información de la firma.</p>
+</main>
+</body>
+</html>

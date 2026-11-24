@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Penagos &amp; Aké · Datos para el sitio</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="../assets/emblema.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: formulario claro y sereno, una pregunta por tarjeta, como un formulario en línea conocido.
+   IDEA: la hoja de admisión del despacho, por secciones con Siguiente / Atrás.
+   PICTURE: el formulario mismo: tarjeta de encabezado con banda de marca y tarjetas de pregunta.
+   COLOUR and TYPE: fondo hueso #F1ECE3, tarjetas blancas, banda negra y oro del logo #D0A044; Inter, Cormorant en títulos.
+   LAYOUT: una columna de 680px, progreso arriba, navegación al pie de cada sección. */
+:root{color-scheme:light dark;--bg:light-dark(#F1ECE3,#121416);--card:light-dark(#FFFFFF,#1C1F22);--ink:light-dark(#1E2124,#ECE7DE);--soft:light-dark(#5A5F63,#B5B0A6);--line:light-dark(#DAD3C6,#3A3F44);--gold:#D0A044;--goldt:light-dark(#7A5718,#D9B56A);--err:light-dark(#B3261E,#F2B8B5)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif;overflow-x:clip}
+.wrap{max-width:680px;margin:0 auto;padding:12px 12px 64px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px;margin-top:12px;position:relative}
+.head{padding:0;overflow:hidden}
+.band{height:10px;background:#16181A;border-bottom:3px solid var(--gold)}
+.head .in{padding:22px 24px 20px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Cinzel,Georgia,serif;font-weight:600;letter-spacing:.05em;color:var(--goldt);font-size:14px}
+h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(28px,5vw,34px);line-height:1.15;margin:10px 0 8px}
+.desc{color:var(--soft);font-size:15px;margin:0}
+.req-note{color:var(--err);font-size:14px;margin:14px 0 0;padding-top:12px;border-top:1px solid var(--line)}
+.prog{display:flex;align-items:center;gap:12px;margin-top:14px;font-size:13px;color:var(--soft)}
+.prog .bar{flex:1;height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.sec{background:#16181A;color:#F4EFE6;border-color:#16181A;padding:16px 24px}
+.sec h2{margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:600;color:var(--gold)}
+.sec p{margin:6px 0 0;font-size:14px;color:#CFC9BE}
+.q{transition:box-shadow .2s}
+.q:focus-within{box-shadow:inset 6px 0 0 var(--gold)}
+.q.bad{border-color:var(--err)}
+.q label.t,.q .t{display:block;font-size:16px;font-weight:500;margin:0 0 4px}
+.q .t b{color:var(--err);font-weight:500}
+.q .h{display:block;font-size:13px;color:var(--soft);margin-bottom:14px}
+.q .msg{display:none;color:var(--err);font-size:13px;margin-top:10px}
+.q.bad .msg{display:block}
+input[type=text],input[type=email],input[type=tel],input[type=url],input[type=number],textarea{width:100%;max-width:100%;font:inherit;font-size:16px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:8px 0;min-height:44px;outline:0;transition:border-color .2s}
+input:focus,textarea:focus{border-bottom:2px solid var(--gold)}
+textarea{resize:vertical;min-height:44px;line-height:1.5;field-sizing:content}
+select{font:inherit;font-size:16px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:10px 12px;min-height:44px;max-width:100%}
+.opts{display:grid;gap:4px}
+.opts label{display:flex;align-items:center;gap:12px;min-height:44px;font-size:15px;cursor:pointer;border-radius:6px;padding:0 6px;margin:0 -6px}
+.opts label:hover{background:light-dark(#F6F2EA,#24282B)}
+.opts input{width:20px;height:20px;accent-color:#7A5718;flex:none;margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:20px}
+.nav .sp{flex:1}
+button{font:inherit;font-size:15px;font-weight:500;min-height:44px;padding:0 22px;border-radius:6px;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+button.pri{background:#16181A;color:#F4EFE6;border-color:#16181A}
+button.pri:hover{background:#000}
+button.link{border:0;background:transparent;color:var(--goldt);padding:0 8px}
+.pg{font-size:13px;color:var(--soft)}
+.save{font-size:13px;color:var(--soft);margin:14px 4px 0}
+.done h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;margin:0 0 8px;font-weight:600}
+.done p{margin:0 0 14px;color:var(--soft)}
+.done textarea{border:1px solid var(--line);border-radius:6px;padding:12px;min-height:220px;font-size:14px}
+.foot{text-align:center;font-size:12px;color:var(--soft);margin-top:24px}
+[hidden]{display:none !important}
+@media(max-width:520px){.card{padding:20px 16px}.head .in{padding:18px 16px}.sec{padding:14px 16px}.nav button{flex:1}}
+@media(prefers-reduced-motion:reduce){.prog .bar i,.q{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="card head">
+<div class="band" aria-hidden="true"></div>
+<div class="in">
+<div class="brand">PENAGOS &amp; AKÉ · FIRMA LEGAL</div>
+<h1>Datos para el nuevo sitio web</h1>
+<p class="desc">Con sus respuestas completamos la información pendiente del sitio. Puede avanzar por secciones y dejar preguntas en blanco. Si no termina, sus respuestas quedan como borrador en este dispositivo y puede continuar después.</p>
+<div class="prog"><span id="pgtxt">Página 1 de 9</span><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="pbar"><i id="pfill"></i></div></div>
+<p class="req-note">* Indica que la pregunta es obligatoria</p>
+</div>
+</div>
+
+<form id="f" novalidate></form>
+
+<div class="card done" id="done" hidden aria-live="polite">
+<h2>Gracias, recibimos sus respuestas.</h2>
+<p id="donemsg">Puede volver a este enlace en cualquier momento para corregir o completar datos.</p>
+<div class="nav" style="margin-top:0"><a id="wa" hidden href="#" style="display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:6px;background:#16181A;color:#F4EFE6;text-decoration:none;font-weight:500">Enviar por WhatsApp</a><button type="button" class="link" id="edit">Editar mis respuestas</button><button type="button" id="copy">Copiar respuestas en texto</button></div>
+<textarea id="outtxt" readonly hidden aria-label="Respuestas en texto"></textarea>
+</div>
+
+<p class="save" id="save" aria-live="polite">Preparando…</p>
+<p class="foot">Formulario preparado por digiLab para Penagos &amp; Aké. La información es confidencial y se usa solo para el sitio web.</p>
+</div>
+
+<script>
+/* CONFIGURACIÓN: correo que recibe las respuestas y WhatsApp de respaldo (solo dígitos, con 52) */
+const CONFIG = { correo: 'gaelateno@gmail.com', whatsapp: '525586779707' };
+{
+const S = [
+ {t:'Quién responde', d:'Para saber con quién aclarar dudas.', q:[
+  {n:'contacto_proyecto', k:'text', l:'Nombre de quien responde', r:true},
+  {n:'contacto_tel', k:'tel', l:'Teléfono o WhatsApp de contacto', r:true}]},
+ {t:'Datos de la firma', d:'Aparecen en el encabezado, el contacto y el pie de página.', q:[
+  {n:'nombre_comercial', k:'text', l:'Nombre como debe aparecer', p:'Penagos & Aké, Firma Legal'},
+  {n:'razon_social', k:'text', l:'Razón social', h:'Solo si existe una sociedad registrada'},
+  {n:'anio_fundacion', k:'number', l:'Año de fundación'},
+  {n:'anios_ejercicio', k:'text', l:'Años de ejercicio profesional', h:'El dato que prefieran publicar'},
+  {n:'direccion', k:'text', l:'Dirección de la oficina', h:'Calle, número, colonia y código postal'},
+  {n:'horario', k:'text', l:'Horario de atención', p:'Ej. lunes a viernes de 9:00 a 18:00'},
+  {n:'correo', k:'email', l:'Correo de contacto'},
+  {n:'tel1', k:'tel', l:'Teléfono 1', v:'984 128 5303'},
+  {n:'tel2', k:'tel', l:'Teléfono 2', v:'984 806 8716'},
+  {n:'whatsapp', k:'tel', l:'Número de WhatsApp'},
+  {n:'tiempo_respuesta', k:'text', l:'Tiempo de primera respuesta', h:'Lo que puedan cumplir siempre, por ejemplo: el mismo día hábil'},
+  {n:'fuero', k:'check', l:'Fuero en el que litigan', o:['Local','Federal']},
+  {n:'idiomas', k:'check', l:'Idiomas en los que atienden', o:['Español','Inglés','Maya','Francés','Italiano']},
+  {n:'cobertura', k:'text', l:'Ciudades o municipios donde llevan asuntos'},
+  {n:'primera_reunion', k:'radio', l:'La primera reunión es…', o:['Sin costo','Con costo','Depende del asunto','Prefieren no publicarlo']},
+  {n:'costo_reunion', k:'text', l:'Costo de la primera reunión', h:'Solo si tiene costo'}]},
+ {t:'Socio: Lic. Penagos', d:'Las firmas líderes muestran a sus abogados con nombre, cargo y cédula.', q:[
+  {n:'s1_nombre', k:'text', l:'Nombre completo'},
+  {n:'s1_cedula', k:'text', l:'Cédula profesional'},
+  {n:'s1_universidad', k:'text', l:'Universidad y año de titulación'},
+  {n:'s1_posgrados', k:'text', l:'Posgrados o especialidades'},
+  {n:'s1_areas', k:'text', l:'Áreas que atiende'},
+  {n:'s1_semblanza', k:'para', l:'Semblanza breve', h:'Unas 60 a 80 palabras, en sus palabras; nosotros la editamos'},
+  {n:'s1_correo', k:'email', l:'Correo directo (opcional)'},
+  {n:'s1_foto', k:'radio', l:'¿Tiene retrato profesional?', o:['Sí, lo envío','No, quiero agendar sesión de fotos']}]},
+ {t:'Socio: Lic. Aké', d:'Mismos datos que el socio anterior.', q:[
+  {n:'s2_nombre', k:'text', l:'Nombre completo'},
+  {n:'s2_cedula', k:'text', l:'Cédula profesional'},
+  {n:'s2_universidad', k:'text', l:'Universidad y año de titulación'},
+  {n:'s2_posgrados', k:'text', l:'Posgrados o especialidades'},
+  {n:'s2_areas', k:'text', l:'Áreas que atiende'},
+  {n:'s2_semblanza', k:'para', l:'Semblanza breve'},
+  {n:'s2_correo', k:'email', l:'Correo directo (opcional)'},
+  {n:'s2_foto', k:'radio', l:'¿Tiene retrato profesional?', o:['Sí, lo envío','No, quiero agendar sesión de fotos']},
+  {n:'equipo', k:'para', l:'Otros abogados o colaboradores que deban aparecer', h:'Nombre, cargo y cédula de cada uno'}]},
+ {t:'Áreas de práctica', d:'Marque las que sí atienden y cuéntenos qué asuntos llegan más.', q:[
+  {n:'areas', k:'check', l:'Áreas que atienden', o:['Familiar','Laboral','Civil e inmobiliario','Mercantil','Amparo','Administrativo','Exhortos y cartas rogatorias','Traducción y apostilla','Penal','Migratorio']},
+  {n:'areas_otras', k:'text', l:'Áreas que faltan en la lista'},
+  {n:'asuntos_frecuentes', k:'para', l:'Los cinco asuntos que más atienden', h:'Uno por renglón, como se los plantea el cliente'},
+  {n:'documentos', k:'para', l:'Documentos que suelen pedir en la primera reunión', h:'Por área, si es distinto'},
+  {n:'no_atienden', k:'para', l:'Asuntos que NO atienden'}]},
+ {t:'La firma en sus palabras', d:'Con esto redactamos el párrafo institucional. Escriba como si se lo contara a un cliente.', q:[
+  {n:'origen', k:'para', l:'¿Cómo y por qué fundaron la firma?'},
+  {n:'clientes', k:'para', l:'¿Qué tipo de clientes atienden con más frecuencia?'},
+  {n:'tribunales', k:'para', l:'¿En qué juzgados o tribunales litigan con más frecuencia?'},
+  {n:'diferencia', k:'para', l:'¿Qué hacen distinto a otros despachos de la zona?', h:'Hechos concretos, no adjetivos'},
+  {n:'nunca', k:'para', l:'¿Hay algo que nunca harían con un cliente?'}]},
+ {t:'Reseñas y reconocimientos', d:'Solo se publican datos reales y verificables.', q:[
+  {n:'google_perfil', k:'url', l:'Enlace a su perfil de Google', p:'https://'},
+  {n:'google_calificacion', k:'text', l:'Calificación actual en Google', p:'Ej. 4.9'},
+  {n:'google_resenas', k:'text', l:'Número de reseñas'},
+  {n:'resenas_permiso', k:'radio', l:'¿Autorizan publicar reseñas con el nombre que aparece en Google?', o:['Sí','Sí, solo con iniciales','No']},
+  {n:'asociaciones', k:'text', l:'Colegios, barras o asociaciones a las que pertenecen'},
+  {n:'reconocimientos', k:'para', l:'Reconocimientos, cargos públicos previos, docencia o publicaciones'}]},
+ {t:'Publicaciones y presencia digital', d:'Bastan dos o tres notas jurídicas al inicio.', q:[
+  {n:'temas', k:'para', l:'Temas sobre los que les gustaría publicar'},
+  {n:'autor_notas', k:'radio', l:'¿Quién escribiría las notas?', o:['Los socios','Los socios con apoyo de digiLab','digiLab, con revisión de los socios']},
+  {n:'ingles', k:'radio', l:'¿Necesitan versión en inglés?', o:['Sí, completa','Solo páginas principales','No por ahora']},
+  {n:'dominio', k:'text', l:'Dominio web, si ya lo tienen', p:'ej. penagosake.com'},
+  {n:'redes', k:'text', l:'Facebook, Instagram, LinkedIn'},
+  {n:'aviso_privacidad', k:'radio', l:'¿Tienen aviso de privacidad?', o:['Sí, lo envío','No, necesitamos redactarlo']},
+  {n:'no_publicar', k:'text', l:'¿Algún dato que NO debamos publicar?'}]},
+ {t:'Sobre el diseño', d:'Hay dos versiones para elegir: la A, con el emblema animado en la portada, y la B, con el video de la plumilla.', q:[
+  {n:'version', k:'radio', l:'Versión que prefieren', o:['Versión A','Versión B','Combinar ambas','Aún no decidimos']},
+  {n:'comentarios', k:'para', l:'Comentarios, cambios o ideas'}]}
+];
+const ALL = S.flatMap(s => s.q);
+const KEY = 'pa-gform-v1';
+const form = document.getElementById('f');
+const saveEl = document.getElementById('save');
+let page = 0, ref = null, timer = null, busy = false, again = false;
+const E = x => String(x).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function field(q) {
+  const id = 'q_' + q.n, req = q.r ? ' <b aria-hidden="true">*</b>' : '';
+  const head = (q.k === 'check' || q.k === 'radio')
+    ? `<span class="t" id="${id}_l">${E(q.l)}${req}</span>`
+    : `<label class="t" for="${id}">${E(q.l)}${req}</label>`;
+  const help = q.h ? `<span class="h">${E(q.h)}</span>` : '<span class="h"></span>';
+  let inp;
+  if (q.k === 'para') inp = `<textarea id="${id}" name="${q.n}" rows="1" placeholder="Su respuesta"${q.r ? ' required' : ''}></textarea>`;
+  else if (q.k === 'check' || q.k === 'radio') inp = `<div class="opts" role="${q.k === 'radio' ? 'radiogroup' : 'group'}" aria-labelledby="${id}_l">` + q.o.map(o => `<label><input type="${q.k === 'radio' ? 'radio' : 'checkbox'}" name="${q.n}" value="${E(o)}"> ${E(o)}</label>`).join('') + '</div>';
+  else inp = `<input id="${id}" type="${q.k}" name="${q.n}" placeholder="${E(q.p || 'Su respuesta')}"${q.r ? ' required' : ''}${q.k === 'number' ? ' inputmode="numeric"' : ''}>`;
+  return `<div class="card q" data-n="${q.n}">${head}${help}${inp}<span class="msg" role="alert">Esta pregunta es obligatoria</span></div>`;
+}
+form.innerHTML = S.map((s, i) => `<section class="page" data-i="${i}" ${i ? 'hidden' : ''} aria-label="${E(s.t)}">
+<div class="card sec"><h2>${E(s.t)}</h2><p>${E(s.d)}</p></div>
+${s.q.map(field).join('')}
+<div class="nav">${i ? '<button type="button" data-go="-1">Atrás</button>' : ''}${i < S.length - 1 ? '<button type="button" class="pri" data-go="1">Siguiente</button>' : '<button type="submit" class="pri">Enviar</button>'}<span class="sp"></span><span class="pg">Página ${i + 1} de ${S.length}</span>${i === S.length - 1 ? '<button type="button" class="link" id="clear">Borrar formulario</button>' : ''}</div>
+</section>`).join('');
+
+function collect() {
+  const d = {};
+  for (const q of ALL) {
+    const els = form.querySelectorAll(`[name="${q.n}"]`);
+    if (q.k === 'check') d[q.n] = [...els].filter(e => e.checked).map(e => e.value);
+    else if (q.k === 'radio') { const c = [...els].find(e => e.checked); d[q.n] = c ? c.value : ''; }
+    else d[q.n] = els[0] ? els[0].value.trim() : '';
+  }
+  return d;
+}
+function fill(d) {
+  if (!d || typeof d !== 'object') return;
+  for (const q of ALL) {
+    const v = d[q.n]; const els = form.querySelectorAll(`[name="${q.n}"]`);
+    if (q.k === 'check') els.forEach(e => e.checked = Array.isArray(v) && v.includes(e.value));
+    else if (q.k === 'radio') els.forEach(e => e.checked = e.value === v);
+    else if (els[0]) els[0].value = typeof v === 'string' ? v : (q.v && !v ? q.v : els[0].value);
+  }
+}
+function defaults() { for (const q of ALL) if (q.v) { const e = form.querySelector(`[name="${q.n}"]`); if (e && !e.value) e.value = q.v; } }
+function show(i) {
+  page = Math.max(0, Math.min(S.length - 1, i));
+  form.querySelectorAll('.page').forEach(p => p.hidden = +p.dataset.i !== page);
+  document.getElementById('pgtxt').textContent = `Página ${page + 1} de ${S.length}`;
+  const pct = Math.round(100 * page / (S.length - 1));
+  document.getElementById('pfill').style.width = pct + '%';
+  document.getElementById('pbar').setAttribute('aria-valuenow', pct);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function validate(i) {
+  let ok = true, first = null;
+  S[i].q.filter(q => q.r).forEach(q => {
+    const card = form.querySelector(`.q[data-n="${q.n}"]`); const v = collect()[q.n];
+    const bad = Array.isArray(v) ? !v.length : !v;
+    card.classList.toggle('bad', bad); if (bad) { ok = false; first = first || card; }
+  });
+  if (first) { const e = first.querySelector('input,textarea'); if (e) e.focus(); }
+  return ok;
+}
+function local(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {} }
+const hhmm = () => new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
+async function write(extra) {
+  if (!ref) return;
+  if (busy) { again = true; return; }
+  busy = true; saveEl.textContent = 'Guardando…';
+  try { await ref.set({ ...collect(), ...(extra || {}), actualizado: new Date().toISOString() }); saveEl.textContent = 'Borrador guardado a las ' + hhmm(); }
+  catch (e) { saveEl.textContent = 'No se pudo guardar en línea. Al final puede copiar sus respuestas.'; }
+  busy = false; if (again) { again = false; write(); }
+}
+function changed(e) {
+  const card = e.target.closest('.q'); if (card) card.classList.remove('bad');
+  local(collect());
+  if (!ref) { saveEl.textContent = 'Borrador guardado en este dispositivo'; return; }
+  clearTimeout(timer); timer = setTimeout(write, 1200);
+}
+function asText(d) {
+  const out = ['PENAGOS & AKÉ · Datos para el sitio web', ''];
+  S.forEach(s => { const rows = s.q.filter(q => Array.isArray(d[q.n]) ? d[q.n].length : d[q.n]); if (!rows.length) return;
+    out.push('== ' + s.t + ' =='); rows.forEach(q => out.push('- ' + q.l + ' [' + q.n + ']: ' + (Array.isArray(d[q.n]) ? d[q.n].join(', ') : d[q.n]))); out.push(''); });
+  return out.join('\n');
+}
+
+form.addEventListener('input', changed);
+form.addEventListener('change', changed);
+form.addEventListener('click', e => {
+  const b = e.target.closest('[data-go]'); if (!b) return;
+  const dir = +b.dataset.go; if (dir > 0 && !validate(page)) return; show(page + dir);
+});
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  for (let i = 0; i < S.length; i++) if (!validate(i)) { show(i); return; }
+  const d = collect(); local(d);
+  const btn = form.querySelector('button[type=submit]'); btn.disabled = true; btn.textContent = 'Enviando…';
+  const payload = { _subject: 'Penagos & Aké · Datos para el sitio (' + (d.contacto_proyecto || 'sin nombre') + ')', _template: 'table', _captcha: 'false', resumen: asText(d) };
+  for (const q of ALL) payload[q.n] = Array.isArray(d[q.n]) ? d[q.n].join(', ') : d[q.n];
+  let sent = false;
+  try {
+    const r = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(CONFIG.correo), { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) });
+    const j = await r.json().catch(() => ({}));
+    sent = r.ok && String(j.success) !== 'false';
+  } catch (err) { sent = false; }
+  btn.disabled = false; btn.textContent = 'Enviar';
+  form.hidden = true; document.getElementById('done').hidden = false; document.querySelector('.prog').hidden = true;
+  const msg = document.getElementById('donemsg'), wa = document.getElementById('wa');
+  wa.href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(asText(d));
+  if (sent) { msg.textContent = 'Sus respuestas se enviaron a digiLab. Puede volver a este enlace para corregir o completar datos y enviarlas de nuevo.'; wa.hidden = true; saveEl.textContent = 'Enviado a las ' + hhmm(); }
+  else { msg.textContent = 'No pudimos enviarlas automáticamente. Por favor envíelas por WhatsApp con el botón de abajo; el mensaje ya va escrito.'; wa.hidden = false; }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+form.addEventListener('click', e => {
+  if (e.target.id !== 'clear') return;
+  if (e.target.dataset.sure !== '1') { e.target.dataset.sure = '1'; e.target.textContent = '¿Seguro? Toque de nuevo para borrar'; return; }
+  form.reset(); defaults(); e.target.dataset.sure = ''; e.target.textContent = 'Borrar formulario'; local(collect());  show(0);
+});
+document.getElementById('edit').addEventListener('click', () => { form.hidden = false; document.getElementById('done').hidden = true; document.querySelector('.prog').hidden = false; show(0); });
+document.getElementById('copy').addEventListener('click', async () => {
+  const ta = document.getElementById('outtxt'); ta.hidden = false; ta.value = asText(collect());
+  try { await navigator.clipboard.writeText(ta.value); saveEl.textContent = 'Respuestas copiadas'; } catch (e) { ta.focus(); ta.select(); saveEl.textContent = 'Seleccione el texto y cópielo'; }
+});
+
+defaults();
+try { fill(JSON.parse(localStorage.getItem(KEY) || 'null')); } catch (e) {}
+show(0);
+saveEl.textContent = 'Sus respuestas se guardan como borrador en este dispositivo hasta que las envíe.';
+}
+</script>
+</body>
+</html>
